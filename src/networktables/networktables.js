@@ -1,7 +1,7 @@
 
 var NetworkTables =
     (() => {
-        /* may need to change ip when using real robot to 10.59.68.2 */
+        /* may need to change ip when using real robot to 10.59.68.2 and 127.0.0.1 for local host sim*/
         let keys = {}, connectionListeners = [], connected = false, globalListeners = [], keyListeners = {}, robotAddress = '127.0.0.1';
         window.api.sendReady();
         window.api.onConnected((ev, con) => {
