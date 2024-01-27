@@ -5,7 +5,6 @@ let ui = {
     gyro: {
         container: document.getElementById('gyro'),
         val: 0,
-        offset: 0,
         visualVal: 0,
         arm: document.getElementById('gyro-arm'),
         number: document.getElementById('gyro-number')
@@ -26,7 +25,7 @@ let ui = {
 // Gyro rotation
 let updateGyro = (key, value) => {
     ui.gyro.val = value;
-    ui.gyro.visualVal = Math.floor(ui.gyro.val - ui.gyro.offset);
+    ui.gyro.visualVal = Math.floor(ui.gyro.val);
     ui.gyro.visualVal %= 360;
     if (ui.gyro.visualVal < 0) {
         ui.gyro.visualVal += 360;
@@ -34,7 +33,7 @@ let updateGyro = (key, value) => {
     ui.gyro.arm.style.transform = `rotate(${ui.gyro.visualVal}deg)`;
     ui.gyro.number.textContent = ui.gyro.visualVal + 'º';
 };
-NetworkTables.addKeyListener('/SmartDashboard/drive/navx/yaw', updateGyro);
+NetworkTables.addKeyListener('/SmartDashboard/yaw', updateGyro);
 
 // The following case is an example, for a robot with an arm at the front.
 NetworkTables.addKeyListener('/SmartDashboard/arm/encoder', (key, value) => {
@@ -89,13 +88,6 @@ NetworkTables.addKeyListener('/SmartDashboard/Autonomous\ Mode/selected', (key, 
 ui.example.button.onclick = function() {
     // Set NetworkTables values to the opposite of whether button has active class.
     NetworkTables.putValue('/SmartDashboard/example_variable', this.className != 'active');
-};
-// Reset gyro value to 0 on click
-ui.gyro.container.onclick = function() {
-    // Store previous gyro val, will now be subtracted from val for callibration
-    ui.gyro.offset = ui.gyro.val;
-    // Trigger the gyro to recalculate value.
-    updateGyro('/SmartDashboard/drive/navx/yaw', ui.gyro.val);
 };
 // Update NetworkTables when autonomous selector is changed
 ui.autoSelect.onchange = function() {
