@@ -3,69 +3,86 @@
     margin: 0;
     padding: 0;
 }
+
 ::-webkit-scrollbar {
     display: none;
 }
+
 body {
-    font: 16px sans-serif;
+    font: 16px 'Comic Sans MS', cursive;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    color: white;
+    color: #ff66b2; /* Pink color */
     overflow: hidden;
-    background: #222;
+    background: #ffc0cb; /* Light pink background */
 }
-button, input[type="text"], input[type="number"], .select-container, select {
-    color: white;
-    background: #444;
+
+button,
+input[type="text"],
+input[type="number"],
+.select-container,
+select {
+    color: #fff; /* White text */
+    background: #ff66b2; /* Pink background */
     border: none;
     font-size: 14px;
     padding: 6px 8px;
     cursor: pointer;
     outline: 0;
 }
+
 .select-container {
     padding: 0;
     display: inline-block;
 }
+
 select {
     border: none;
     background: none;
-    color: white;
+    color: #fff; /* White text */
     height: 25px;
 }
-input[type="text"], input[type="number"] {
+
+input[type="text"],
+input[type="number"] {
     cursor: text;
 }
+
 input[type="checkbox"] {
     -webkit-filter: saturate(0);
     filter: saturate(0);
 }
+
 /* Major interface panes, aside, article, header, etc. */
 body > * {
     padding: 10px;
     position: fixed;
     overflow: scroll;
-    background: #222;
+    background: #ffc0cb; /* Light pink background */
 }
+
 #timer {
-    font-family: monospace;
+    font-family: 'Comic Sans MS', cursive;
     display: block;
     height: 20vh;
     width: 30vw;
     top: 0;
     left: 0;
     font-size: 20vh;
-    line-height: .8;
+    line-height: 0.8;
+    color: #ff66b2; /* Pink color */
 }
+
 header {
     width: 20vw;
     height: 20vh;
     top: 0;
     left: 30vw;
-    color: white;
+    color: #fff; /* White text */
 }
+
 #camera {
     padding: 0;
     position: fixed;
@@ -74,67 +91,81 @@ header {
     width: 50vw;
     height: 80vh;
     overflow: hidden;
-    background-color: #333;
+    background-color: #ffc0cb; /* Light pink background */
     background-image: url('10.59.68.11:5800');
 }
+
 article {
     top: 0;
     left: 50vw;
     height: 100vh;
     width: 35vw;
+    background: #ffc0cb; /* Light pink background */
 }
+
 svg * {
-    stroke: white;
-    fill: #222;
+    stroke: #fff; /* White stroke */
+    fill: #ffc0cb; /* Light pink fill */
     stroke-width: 2;
     -webkit-transform-origin: center;
     -ms-transform-origin: center;
     transform-origin: center;
 }
+
 text {
     font-size: 16px;
     letter-spacing: 2px;
     stroke: none;
-    fill: white;
+    fill: #fff; /* White text */
 }
+
 #gyro {
     width: 175px;
     height: 175px;
     margin-left: 30px;
     margin-top: 15px;
 }
+
 #gyro-arm {
     -webkit-transform-origin: bottom;
     -ms-transform-origin: bottom;
     transform-origin: bottom;
 }
+
 #gyro-number {
     font-size: 25px;
     text-anchor: middle;
 }
+
 #robot-diagram {
     position: absolute;
     bottom: 1px;
     right: 1vw;
 }
+
 #robot-arm {
     -webkit-transform-origin: right;
     -ms-transform-origin: right;
     transform-origin: right;
 }
+
 #team {
     font-size: 28px;
     letter-spacing: -1px;
 }
+
 aside {
     right: 0;
     top: 0;
     width: 15vw;
     height: 100vh;
+    background: #ffc0cb; /* Light pink background */
 }
+
 aside > * {
     margin-bottom: 20px;
 }
+
 #login {
     position: fixed;
     display: none;
@@ -145,17 +176,43 @@ aside > * {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.8)
+    background-color: rgba(255, 182, 193, 0.8); /* Light pink background with alpha */
 }
+
 body.login #login {
     display: flex;
 }
+
 #login :disabled {
     opacity: 0.6;
 }
+
 #login > * {
     height: 40px;
 }
+
 #login > button {
     margin-left: 5px;
 }
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.motor-text {
+    text-align: center;
+    color: #ff66b2;
+    font-family: 'Comic Sans MS', cursive;
+    margin-bottom: 5px;
+  }
+  
+  .progress-bar {
+    width: 50%;
+    height: 30px;
+    background-color: rgb(205, 113, 128);
+    border-radius: 5px;
+    text-align: center;
+    line-height: 30px;
+    color: rgb(255, 255, 255);
+  }
